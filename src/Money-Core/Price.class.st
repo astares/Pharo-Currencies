@@ -2,8 +2,8 @@
 An amount of money
 "
 Class {
-	#name : #Money,
-	#superclass : #Object,
+	#name : #Price,
+	#superclass : #Magnitude,
 	#instVars : [
 		'amount',
 		'currencyCode'
@@ -15,14 +15,14 @@ Class {
 }
 
 { #category : #'instance creation' }
-Money class >> amount: aNumber currency: aCurrency [ 
+Price class >> amount: aNumber currency: aCurrency [ 
 	"Return a new instance of the receiver with the given amount and currency."
 	
 	^self amount: aNumber currencyCode: aCurrency currencyCode
 ]
 
 { #category : #'instance creation' }
-Money class >> amount: aNumber currencyCode: aCurrencyCode [ 
+Price class >> amount: aNumber currencyCode: aCurrencyCode [ 
 	"Return a new instance of the receiver with the given amount and currency code."
 	
 	^(self new)
@@ -33,13 +33,13 @@ Money class >> amount: aNumber currencyCode: aCurrencyCode [
 ]
 
 { #category : #arithmetic }
-Money >> * other [
+Price >> * other [
 	other isMoney ifTrue: [self error: 'Cannot multiply two money values'].
-	^ Money amount: amount * other currencyCode: currencyCode
+	^ Price amount: amount * other currencyCode: currencyCode
 ]
 
 { #category : #arithmetic }
-Money >> + other [
+Price >> + other [
 	other = 0 ifTrue: [^ self].
 	other isNumber ifTrue: [ ^self + (self class amount: other currencyCode: currencyCode ) ].
 	other isMoney ifFalse: [ self errorNotMoney ].
@@ -49,7 +49,7 @@ self error: 'no money bag support yet'
 ]
 
 { #category : #arithmetic }
-Money >> - other [
+Price >> - other [
 	other = 0 ifTrue: [ ^self ].
 	other isMoney ifFalse: [ self errorNotMoney ].
 	other currencyCode = self currencyCode ifTrue:
@@ -58,7 +58,7 @@ Money >> - other [
 ]
 
 { #category : #arithmetic }
-Money >> / other [
+Price >> / other [
 	other isMoney ifTrue: [ self error: 'Can not divide two money values' ].
 	 
 	^self class 
@@ -67,18 +67,18 @@ Money >> / other [
 ]
 
 { #category : #arithmetic }
-Money >> // anInteger [ 
+Price >> // anInteger [ 
 	^self amount // anInteger 
 ]
 
 { #category : #comparing }
-Money >> < other [
+Price >> < other [
 
 	^self amount < other amount
 ]
 
 { #category : #comparision }
-Money >> = anObject [
+Price >> = anObject [
 	"Return true if the code matches"
 	
 	(self species == anObject species
@@ -89,60 +89,65 @@ Money >> = anObject [
 ]
 
 { #category : #other }
-Money >> adaptToNumber: aNumber andSend: selector [ 
+Price >> adaptToNumber: aNumber andSend: selector [ 
 	
 	^ self perform: selector with: aNumber
 ]
 
 { #category : #accessing }
-Money >> amount [
+Price >> amount [
 	^amount
 ]
 
 { #category : #accessing }
-Money >> amount: aNumber [
+Price >> amount: aNumber [
 	amount := aNumber
 ]
 
 { #category : #accessing }
-Money >> currency [
+Price >> currency [
 	"Return the currency"
 	
 	^Currency code: self currencyCode 
 ]
 
 { #category : #accessing }
-Money >> currencyCode [
+Price >> currencyCode [
 
 	^currencyCode 
 ]
 
 { #category : #accessing }
-Money >> currencyCode: aCode [
+Price >> currencyCode: aCode [
 
 	currencyCode := aCode 
 ]
 
 { #category : #private }
-Money >> errorNotMoney [
+Price >> errorNotMoney [
 	 
 	self error: 'Invalid arithmetic operation between money and non-money value'
 ]
 
+{ #category : #comparing }
+Price >> hash [
+	^ amount hash bitXor: currencyCode hash
+]
+
 { #category : #testing }
-Money >> isMoney [
+Price >> isMoney [
 
 	^ true
 ]
 
 { #category : #testing }
-Money >> isZero [
+Price >> isZero [
 
 	^amount = 0
 ]
 
 { #category : #printing }
-Money >> printOn: aStream [
+Price >> printOn: aStream [
 
 	self amount printOn: aStream showingDecimalPlaces: self amount scale.
 	aStream space.
@@ -151,7 +156,7 @@ Money >> printOn: aStream [
 ]
 
 { #category : #intervals }
-Money >> to: stop [
+Price >> to: stop [
 	"Answer an Interval from the receiver up to the argument, stop, 
 	incrementing by 1."
 
@@ -159,7 +164,7 @@ Money >> to: stop [
 ]
 
 { #category : #intervals }
-Money >> to: stop by: step [
+Price >> to: stop by: step [
 	"Answer an Interval from the receiver up to the argument, stop, 
 	incrementing by step."
 
