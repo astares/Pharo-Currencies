@@ -167,6 +167,8 @@ Price >> to: stop [
 Price >> to: stop by: step [
 	"Answer an Interval from the receiver up to the argument, stop, 
 	incrementing by step."
-
-	^Interval from: self to: stop by: step amount
+	| inc |
+	inc := step isMoney ifTrue: [ step amount ]
+							  ifFalse: [ step asScaledDecimal: 2 ].
+	^Interval from: self to: stop by: inc
 ]
