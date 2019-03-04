@@ -5,7 +5,7 @@ Dealing with Currencies in Pharo
 
 ```Smalltalk
 Metacello new
-      baseline:'SemanticUI';
+      baseline:'Currencies';
       repository: 'github://astares/Pharo-Currencies:master/src';
       load
 ```
