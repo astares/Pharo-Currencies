@@ -11,8 +11,8 @@ Class {
 CurrencyTest >> testComparision [
 
 	self 
-		assert: (Currency code: 'EUR') = (Currency code: 'EUR');
-		assert: (Currency code: 'EUR') = (Currency code: #'EUR')
+		assert: (Currency code: 'EUR') equals: (Currency code: 'EUR');
+		assert: (Currency code: 'EUR') equals: (Currency code: #'EUR')
 ]
 
 { #category : #tests }
