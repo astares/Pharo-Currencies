@@ -1255,5 +1255,5 @@ Number >> asAmountInCurrency: currencyCode [
 { #category : #'*Money-Core' }
 Number >> asMoneyInCurrency: currencyCode [
 
-	^Price amount: (self asScaledDecimal: 2) currencyCode: currencyCode
+	^Price amount: (self asScaledDecimal: 4) currencyCode: currencyCode
 ]

@@ -67,6 +67,13 @@ PriceTest >> testMultiplyStartingWithNumber [
 	self assert: 2 * 6 EUR equals: 12 EUR
 ]
 
+{ #category : #'tests - printing' }
+PriceTest >> testPrecisePrintString [
+	self 
+		assert: 1.12 EUR printString equals: '1.12 EUR';
+		assert: 9.888 EUR printString equals: '9.888 EUR'
+]
+
 { #category : #tests }
 PriceTest >> testPrinting [
 
@@ -75,8 +82,22 @@ PriceTest >> testPrinting [
 		assert: 10.5 EUR printString equals: '10.50 EUR' 
 ]
 
+{ #category : #'tests - printing' }
+PriceTest >> testRegularPrintString [
+	self 
+		assert: 1 EUR printString equals: '1 EUR';
+		assert: 12 EUR printString equals: '12 EUR';
+		assert: (12.00 EUR + 14.00 EUR) printString equals: '26 EUR'
+]
+
 { #category : #'tests - arithmetic' }
 PriceTest >> testSubtraction [
 
 	self assert: 30 EUR - 20 EUR equals: 10 EUR 
+]
+
+{ #category : #'tests - printing' }
+PriceTest >> testTrimmedPrintString [
+	self 
+		assert: 1.00 EUR printString equals: '1 EUR'
 ]

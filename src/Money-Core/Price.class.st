@@ -149,7 +149,11 @@ Price >> isZero [
 { #category : #printing }
 Price >> printOn: aStream [
 
-	self amount printOn: aStream showingDecimalPlaces: self amount scale.
+	| amountString |
+	amountString := String streamContents: [:s |
+		self amount printOn: s showingDecimalPlaces: self amount scale ].
+	
+	aStream nextPutAll: (amountString trimRight: [:each | each = $0 or: each = $. ]).
 	aStream space.
 	aStream nextPutAll: currencyCode asString
 	
