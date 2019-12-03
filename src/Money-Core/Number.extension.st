@@ -1249,11 +1249,11 @@ Number >> ZWL [
 { #category : #'*Money-Core-Currencies' }
 Number >> asAmountInCurrency: currencyCode [
 
-	^Price amount: (self asScaledDecimal: 2) currencyCode: currencyCode
+	^Price amount: self currencyCode: currencyCode
 ]
 
 { #category : #'*Money-Core' }
 Number >> asMoneyInCurrency: currencyCode [
 
-	^Price amount: (self asScaledDecimal: 4) currencyCode: currencyCode
+	^Price amount: self currencyCode: currencyCode
 ]

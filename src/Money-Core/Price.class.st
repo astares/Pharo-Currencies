@@ -101,7 +101,7 @@ Price >> amount [
 
 { #category : #accessing }
 Price >> amount: aNumber [
-	amount := aNumber
+	amount := aNumber asScaledDecimal: 4
 ]
 
 { #category : #accessing }
@@ -152,8 +152,10 @@ Price >> printOn: aStream [
 	| amountString |
 	amountString := String streamContents: [:s |
 		self amount printOn: s showingDecimalPlaces: self amount scale ].
-	
-	aStream nextPutAll: (amountString trimRight: [:each | each = $0 or: each = $. ]).
+	(amountString indexOf: $.) > 0
+		ifTrue: [ amountString := amountString trimRight: [:each | each = $0 ].
+					 amountString := amountString trimRight: [:each | each = $. ] ].
+	aStream nextPutAll: amountString.
 	aStream space.
 	aStream nextPutAll: currencyCode asString
 	
@@ -173,6 +175,6 @@ Price >> to: stop by: step [
 	incrementing by step."
 	| inc |
 	inc := step isMoney ifTrue: [ step amount ]
-							  ifFalse: [ step asScaledDecimal: 2 ].
+							  ifFalse: [ step asScaledDecimal: 4 ].
 	^Interval from: self to: stop by: inc
 ]
