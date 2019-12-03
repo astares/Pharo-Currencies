@@ -16,7 +16,7 @@ BaselineOfCurrencies >> baseline: spec [
 			spec blessing: #baseline.
 			spec
 				package: #'Money-Core';
-				package: #'Money-Core-Tests' with: [ spec requires: #(#'XMI-Core') ].
+				package: #'Money-Core-Tests' with: [ spec requires: #(#'Money-Core') ].
 				
 			spec
 				group: 'Core' with: #(#'Money-Core');
