@@ -3,7 +3,7 @@ Baseline for currencies project https://github.com/astares/Pharo-Currencies
 "
 Class {
 	#name : #BaselineOfCurrencies,
-	#superclass : #Object,
+	#superclass : #BaselineOf,
 	#category : #BaselineOfCurrencies
 }
 
