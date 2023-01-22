@@ -10,7 +10,7 @@ Class {
 { #category : #tests }
 CurrencyTest >> testComparision [
 
-	self 
+	self
 		assert: (Currency code: 'EUR') equals: (Currency code: 'EUR');
 		assert: (Currency code: 'EUR') equals: (Currency code: #'EUR')
 ]
@@ -20,9 +20,7 @@ CurrencyTest >> testInstanceCreationFromString [
 
 	|instance|
 	instance := 'EUR' asCurrency.
-	self assert: instance code == #'EUR'
-	
-
+	self assert: instance code identicalTo: #'EUR'
 ]
 
 { #category : #tests }
@@ -30,9 +28,7 @@ CurrencyTest >> testInstanceCreationFromSymbols [
 
 	|instance|
 	instance := #'EUR' asCurrency.
-	self assert: instance code == #'EUR'
-	
-
+	self assert: instance code identicalTo: #'EUR'
 ]
 
 { #category : #tests }

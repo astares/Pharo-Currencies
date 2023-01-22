@@ -22,20 +22,18 @@ Class {
 { #category : #'instance creation' }
 Currency class >> code: aSymbol [
 	"Returns an instance of the receiver represented by the given symbol code"
-	
-	^self knownCurrencies at: aSymbol asSymbol ifAbsentPut: [ 
-			(self new) 
+
+	^self knownCurrencies at: aSymbol asSymbol ifAbsentPut: [
+			(self new)
 				code: aSymbol;
-				yourself ] 
-	
+				yourself ]
 ]
 
 { #category : #'private accessing' }
 Currency class >> knownCurrencies [
 	"Return the already known currencies"
-	
-	^KnownCurrencies ifNil: [ KnownCurrencies := IdentityDictionary new ].
-   
+
+	^KnownCurrencies ifNil: [ KnownCurrencies := IdentityDictionary new ]
 ]
 
 { #category : #initialization }
@@ -45,10 +43,10 @@ Currency class >> reset [
 	KnownCurrencies := nil
 ]
 
-{ #category : #comparision }
+{ #category : #comparing }
 Currency >> = otherCurrency [
 	"Return true if the code matches"
-	
+
 	^code = otherCurrency code
 ]
 
@@ -60,18 +58,18 @@ Currency >> asCurrency [
 { #category : #accessing }
 Currency >> code [
 	"Return the currency code"
-	
+
 	^ code
 ]
 
 { #category : #accessing }
-Currency >> code: aString [ 
+Currency >> code: aString [
 	"Sets the currency code which has to be a symbol"
-	
+
 	code := aString asSymbol
 ]
 
-{ #category : #comparision }
+{ #category : #comparing }
 Currency >> hash [
 	^self code hash
 ]

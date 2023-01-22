@@ -16,7 +16,7 @@ PriceTest >> testAccessingCurrency [
 { #category : #'tests - arithmetic' }
 PriceTest >> testAddition [
 
-	self assert: 10 EUR + 20 EUR equals: 30 EUR 
+	self assert: 10 EUR + 20 EUR equals: 30 EUR
 ]
 
 { #category : #'tests - arithmetic compatible' }
@@ -50,7 +50,7 @@ PriceTest >> testInterval [
 { #category : #'tests - intervals' }
 PriceTest >> testIntervalByCurrency [
 
-	self assert: (1 EUR to: 8 EUR by: 2 EUR) size equals: 4 
+	self assert: (1 EUR to: 8 EUR by: 2 EUR) size equals: 4
 ]
 
 { #category : #'tests - arithmetic' }
@@ -62,7 +62,7 @@ PriceTest >> testKeep [
 { #category : #'tests - arithmetic' }
 PriceTest >> testMultiply [
 
-	self assert: 30 EUR * 2 equals: 60 EUR 
+	self assert: 30 EUR * 2 equals: 60 EUR
 ]
 
 { #category : #'tests - arithmetic compatible' }
@@ -84,7 +84,7 @@ PriceTest >> testMultiplyWithFloat [
 
 { #category : #'tests - printing' }
 PriceTest >> testPrecisePrintString [
-	self 
+	self
 		assert: 1.12 EUR printString equals: '1.12 EUR';
 		assert: 9.888 EUR printString equals: '9.888 EUR'
 ]
@@ -92,14 +92,14 @@ PriceTest >> testPrecisePrintString [
 { #category : #tests }
 PriceTest >> testPrinting [
 
-	self 
+	self
 		assert: 10 EUR printString equals: '10 EUR';
-		assert: 10.5 EUR printString equals: '10.5 EUR' 
+		assert: 10.5 EUR printString equals: '10.5 EUR'
 ]
 
 { #category : #'tests - printing' }
 PriceTest >> testRegularPrintString [
-	self 
+	self
 		assert: 1 EUR printString equals: '1 EUR';
 		assert: 12 EUR printString equals: '12 EUR';
 		assert: 120 EUR printString equals: '120 EUR';
@@ -109,11 +109,11 @@ PriceTest >> testRegularPrintString [
 { #category : #'tests - arithmetic' }
 PriceTest >> testSubtraction [
 
-	self assert: 30 EUR - 20 EUR equals: 10 EUR 
+	self assert: 30 EUR - 20 EUR equals: 10 EUR
 ]
 
 { #category : #'tests - printing' }
 PriceTest >> testTrimmedPrintString [
-	self 
+	self
 		assert: 1.00 EUR printString equals: '1 EUR'
 ]
