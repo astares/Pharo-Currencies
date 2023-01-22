@@ -4,7 +4,7 @@ Unit test for amounts
 Class {
 	#name : #PriceTest,
 	#superclass : #TestCase,
-	#category : #'Money-Core-Tests-Model'
+	#category : #'Currencies-Core-Tests-Model'
 }
 
 { #category : #'tests - accessing' }

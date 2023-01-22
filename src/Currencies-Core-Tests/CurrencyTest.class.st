@@ -4,7 +4,7 @@ Test case for currencies
 Class {
 	#name : #CurrencyTest,
 	#superclass : #TestCase,
-	#category : #'Money-Core-Tests-Model'
+	#category : #'Currencies-Core-Tests-Model'
 }
 
 { #category : #tests }

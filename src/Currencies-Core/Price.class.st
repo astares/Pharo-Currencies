@@ -11,7 +11,7 @@ Class {
 	#classVars : [
 		'KnownCurrencies'
 	],
-	#category : #'Money-Core-Model'
+	#category : #'Currencies-Core-Model'
 }
 
 { #category : #'instance creation' }

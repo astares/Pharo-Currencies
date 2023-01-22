@@ -1,6 +1,6 @@
 Extension { #name : #Object }
 
-{ #category : #'*Money-Core' }
+{ #category : #'*Currencies-Core' }
 Object >> isMoney [
 
  	^false
