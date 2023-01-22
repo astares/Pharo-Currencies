@@ -14,15 +14,15 @@ BaselineOfCurrencies >> baseline: spec [
 	<baseline>
 	spec
 		for: #common
-		do: [ 
+		do: [
 			spec blessing: #baseline.
 			spec
-				package: #'Money-Core';
-				package: #'Money-Core-Tests' with: [ spec requires: #(#'Money-Core') ].
-				
+				package: #'Currencies-Core';
+				package: #'Currencies-Core-Tests' with: [ spec requires: #(#'Currencies-Core') ].
+
 			spec
-				group: 'Core' with: #(#'Money-Core');
-				group: 'Tests' with: #(#'Money-Core-Tests');
+				group: 'Core' with: #(#'Currencies-Core');
+				group: 'Tests' with: #(#'Currencies-Core-Tests');
 				group: 'CI' with: #('Tests');
 				group: 'all' with: #('Core' 'Tests');
 				group: 'default' with: #('all') ]
