@@ -17,6 +17,6 @@ Dealing with Currencies in Pharo
 ```Smalltalk
 Metacello new
       baseline:'Currencies';
-      repository: 'github://astares/Pharo-Currencies:master/src';
+      repository: 'github://astares/Pharo-Currencies:main/src';
       load
 ```
