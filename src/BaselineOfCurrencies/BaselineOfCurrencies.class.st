@@ -1,5 +1,7 @@
 "
-Baseline for currencies project https://github.com/astares/Pharo-Currencies
+Dealing with Currencies in Pharo
+
+See [https://github.com/astares/Pharo-Currencies](https://github.com/astares/Pharo-Currencies)
 "
 Class {
 	#name : #BaselineOfCurrencies,
@@ -21,6 +23,7 @@ BaselineOfCurrencies >> baseline: spec [
 			spec
 				group: 'Core' with: #(#'Money-Core');
 				group: 'Tests' with: #(#'Money-Core-Tests');
+				group: 'CI' with: #('Tests');
 				group: 'all' with: #('Core' 'Tests');
 				group: 'default' with: #('all') ]
 ]
