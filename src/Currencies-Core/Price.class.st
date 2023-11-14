@@ -2,8 +2,8 @@
 An amount of money
 "
 Class {
-	#name : #Price,
-	#superclass : #Magnitude,
+	#name : 'Price',
+	#superclass : 'Magnitude',
 	#instVars : [
 		'amount',
 		'currencyCode'
@@ -11,33 +11,35 @@ Class {
 	#classVars : [
 		'KnownCurrencies'
 	],
-	#category : #'Currencies-Core-Model'
+	#category : 'Currencies-Core-Model',
+	#package : 'Currencies-Core',
+	#tag : 'Model'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 Price class >> amount: aNumber currency: aCurrency [
 	"Return a new instance of the receiver with the given amount and currency."
 
-	^self amount: aNumber currencyCode: aCurrency currencyCode
+	^ self amount: aNumber currencyCode: aCurrency currencyCode
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 Price class >> amount: aNumber currencyCode: aCurrencyCode [
 	"Return a new instance of the receiver with the given amount and currency code."
 
-	^(self new)
-		amount: aNumber;
-		currencyCode: aCurrencyCode;
-		yourself
+	^ self new
+		  amount: aNumber;
+		  currencyCode: aCurrencyCode;
+		  yourself
 ]
 
-{ #category : #arithmetic }
+{ #category : 'arithmetic' }
 Price >> * other [
 	other isMoney ifTrue: [self error: 'Cannot multiply two money values'].
 	^ Price amount: amount * other currencyCode: currencyCode
 ]
 
-{ #category : #arithmetic }
+{ #category : 'arithmetic' }
 Price >> + other [
 	other = 0 ifTrue: [^ self].
 	other isNumber ifTrue: [ ^self + (self class amount: other currencyCode: currencyCode ) ].
@@ -47,7 +49,7 @@ Price >> + other [
 self error: 'no money bag support yet'
 ]
 
-{ #category : #arithmetic }
+{ #category : 'arithmetic' }
 Price >> - other [
 	other = 0 ifTrue: [ ^self ].
 	other isMoney ifFalse: [ self errorNotMoney ].
@@ -56,7 +58,7 @@ Price >> - other [
 	^self + (other * -1)
 ]
 
-{ #category : #arithmetic }
+{ #category : 'arithmetic' }
 Price >> / other [
 	other isMoney ifTrue: [ self error: 'Can not divide two money values' ].
 
@@ -65,18 +67,18 @@ Price >> / other [
 		currencyCode: currencyCode
 ]
 
-{ #category : #arithmetic }
+{ #category : 'arithmetic' }
 Price >> // anInteger [
 	^self amount // anInteger
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 Price >> < other [
 
 	^self amount < other amount
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 Price >> = anObject [
 	"Return true if the code matches"
 
@@ -87,65 +89,65 @@ Price >> = anObject [
 	^self amount = anObject amount
 ]
 
-{ #category : #other }
+{ #category : 'other' }
 Price >> adaptToNumber: aNumber andSend: selector [
 
 	^ self perform: selector with: aNumber
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Price >> amount [
 	^amount
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Price >> amount: aNumber [
 	amount := aNumber asScaledDecimal: 4
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Price >> currency [
 	"Return the currency"
 
 	^Currency code: self currencyCode
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Price >> currencyCode [
 
 	^currencyCode
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Price >> currencyCode: aCode [
 
 	currencyCode := aCode
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 Price >> errorNotMoney [
 
 	self error: 'Invalid arithmetic operation between money and non-money value'
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 Price >> hash [
 	^ amount hash bitXor: currencyCode hash
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 Price >> isMoney [
 
 	^ true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 Price >> isZero [
 
 	^amount = 0
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 Price >> printOn: aStream [
 
 	| amountString |
@@ -159,7 +161,7 @@ Price >> printOn: aStream [
 	aStream nextPutAll: currencyCode asString
 ]
 
-{ #category : #intervals }
+{ #category : 'intervals' }
 Price >> to: stop [
 	"Answer an Interval from the receiver up to the argument, stop,
 	incrementing by 1."
@@ -167,7 +169,7 @@ Price >> to: stop [
 	^Interval from: self to: stop by: 1
 ]
 
-{ #category : #intervals }
+{ #category : 'intervals' }
 Price >> to: stop by: step [
 	"Answer an Interval from the receiver up to the argument, stop,
 	incrementing by step."
