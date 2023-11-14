@@ -350,6 +350,12 @@ Number >> EUR [
 	^self asMoneyInCurrency: #'EUR'
 ]
 
+{ #category : '*Currencies-Core-Currencies' }
+Number >> Eurocent [
+
+	^ (self / 100) EUR
+]
+
 { #category : '*Currencies-Core' }
 Number >> FJD [
 	"Fiji dollar"

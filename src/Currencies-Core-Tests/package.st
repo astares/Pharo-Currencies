@@ -1,1 +1,1 @@
-Package { #name : #'Currencies-Core-Tests' }
+Package { #name : 'Currencies-Core-Tests' }

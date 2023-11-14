@@ -2,12 +2,14 @@
 Test case for currencies
 "
 Class {
-	#name : #CurrencyTest,
-	#superclass : #TestCase,
-	#category : #'Currencies-Core-Tests-Model'
+	#name : 'CurrencyTest',
+	#superclass : 'TestCase',
+	#category : 'Currencies-Core-Tests-Model',
+	#package : 'Currencies-Core-Tests',
+	#tag : 'Model'
 }
 
-{ #category : #tests }
+{ #category : 'tests' }
 CurrencyTest >> testComparision [
 
 	self
@@ -15,23 +17,23 @@ CurrencyTest >> testComparision [
 		assert: (Currency code: 'EUR') equals: (Currency code: #'EUR')
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 CurrencyTest >> testInstanceCreationFromString [
 
-	|instance|
+	| instance |
 	instance := 'EUR' asCurrency.
 	self assert: instance code identicalTo: #'EUR'
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 CurrencyTest >> testInstanceCreationFromSymbols [
 
-	|instance|
-	instance := #'EUR' asCurrency.
-	self assert: instance code identicalTo: #'EUR'
+	| instance |
+	instance := #EUR asCurrency.
+	self assert: instance code identicalTo: #EUR
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 CurrencyTest >> testKeepIdentity [
 
 	self assert: (Currency code: 'EUR') == (Currency code: 'EUR')

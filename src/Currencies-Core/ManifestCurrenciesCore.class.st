@@ -18,3 +18,10 @@ ManifestCurrenciesCore class >> ruleBadMessageRule2V1FalsePositive [
 ManifestCurrenciesCore class >> ruleLiteralArrayContainsSuspiciousTrueFalseOrNilRuleV1FalsePositive [
 	^ #(#(#(#RGMetaclassDefinition #(#'ManifestCurrenciesCore class' #ManifestCurrenciesCore)) #'2023-01-22T02:17:52.513743+01:00') )
 ]
+
+{ #category : 'code-critics' }
+ManifestCurrenciesCore class >> ruleUncommonMessageSendRuleV1FalsePositive [
+
+	<ignoreForCoverage>
+	^ #(#(#(#RGMethodDefinition #(#Number #Eurocent #false)) #'2023-11-14T19:51:36.473+01:00') )
+]
