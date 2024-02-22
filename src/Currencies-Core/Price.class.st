@@ -161,6 +161,12 @@ Price >> printOn: aStream [
 	aStream nextPutAll: currencyCode asString
 ]
 
+{ #category : 'storing' }
+Price >> storeString [
+
+	^ self printString
+]
+
 { #category : 'arithmetic' }
 Price >> times: multiplier [
 

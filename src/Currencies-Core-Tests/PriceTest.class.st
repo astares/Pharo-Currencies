@@ -36,17 +36,21 @@ PriceTest >> testAdditionStartingWithNumber [
 { #category : 'tests - comparing' }
 PriceTest >> testCompareTwoPrices [
 
-	self assert: 42 EUR equals: 42 EUR.
-	self assert: 42 EUR hash equals: 42 EUR hash
+	self 
+		assert: 42 EUR equals: 42 EUR;
+		assert: 42 EUR hash equals: 42 EUR hash;
+		assert: 5 EUR ~= 42 EUR
 ]
 
 { #category : 'tests - arithmetic compatible' }
 PriceTest >> testDivideByFloat [
+
 	self assert: 12.00 EUR / 0.1 equals: 120 EUR
 ]
 
 { #category : 'tests - arithmetic compatible' }
 PriceTest >> testDivideByInteger [
+
 	self assert: 12.00 EUR / 2 equals: 6 EUR
 ]
 
@@ -102,17 +106,19 @@ PriceTest >> testMultiplyStartingWithNumber [
 
 { #category : 'tests - arithmetic compatible' }
 PriceTest >> testMultiplyWithFloat [
+
 	self assert: 12.00 EUR * 0.01 equals: 0.12 EUR
 ]
 
 { #category : 'tests - printing' }
 PriceTest >> testPrecisePrintString [
+
 	self
 		assert: 1.12 EUR printString equals: '1.12 EUR';
 		assert: 9.888 EUR printString equals: '9.888 EUR'
 ]
 
-{ #category : 'tests' }
+{ #category : 'tests - printing' }
 PriceTest >> testPrinting [
 
 	self
@@ -122,11 +128,20 @@ PriceTest >> testPrinting [
 
 { #category : 'tests - printing' }
 PriceTest >> testRegularPrintString [
+
 	self
 		assert: 1 EUR printString equals: '1 EUR';
 		assert: 12 EUR printString equals: '12 EUR';
 		assert: 120 EUR printString equals: '120 EUR';
 		assert: (12.00 EUR + 14.00 EUR) printString equals: '26 EUR'
+]
+
+{ #category : 'tests - storing' }
+PriceTest >> testStoreString [
+
+	self 
+		assert: 42 EUR storeString equals: '42 EUR';
+		assert: 42 USD storeString equals: '42 USD'
 ]
 
 { #category : 'tests - arithmetic' }
@@ -137,6 +152,7 @@ PriceTest >> testSubtraction [
 
 { #category : 'tests - printing' }
 PriceTest >> testTrimmedPrintString [
+
 	self
 		assert: 1.00 EUR printString equals: '1 EUR'
 ]

@@ -44,6 +44,7 @@ CurrencyTest >> testTimes [
 
 	self assert: (2 times: 5 EUR) equals: 10 EUR.
 	self assert: (5 EUR times: 2) equals: 10 EUR.
-	self assert: (5 times * 2 EUR) equals: 10 EUR
+	self assert: (5 times * 2 EUR) equals: 10 EUR.
+	self should: [ 5 EUR times: 5 EUR ] raise: Error
 	
 ]
