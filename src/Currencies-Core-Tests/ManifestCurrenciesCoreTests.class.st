@@ -18,5 +18,7 @@ ManifestCurrenciesCoreTests class >> ruleAssertEqualSignIntoAssertEqualsV1FalseP
 
 { #category : 'code-critics' }
 ManifestCurrenciesCoreTests class >> ruleUncommonMessageSendRuleV1FalsePositive [
-	^ #(#(#(#RGClassDefinition #(#PriceTest)) #'2023-01-22T02:14:22.035432+01:00') )
+
+	<ignoreForCoverage>
+	^ #(#(#(#RGClassDefinition #(#PriceTest)) #'2023-01-22T02:14:22.035432+01:00') #(#(#RGPackageDefinition #(#'Currencies-Core-Tests')) #'2024-02-21T22:35:07.264+01:00') )
 ]

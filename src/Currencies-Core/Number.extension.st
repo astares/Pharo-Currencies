@@ -1263,3 +1263,15 @@ Number >> asMoneyInCurrency: currencyCode [
 
 	^Price amount: self currencyCode: currencyCode
 ]
+
+{ #category : '*Currencies-Core' }
+Number >> times [
+
+	^ self
+]
+
+{ #category : '*Currencies-Core' }
+Number >> times: multiplier [
+
+	^ self * multiplier 
+]

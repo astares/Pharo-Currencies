@@ -161,6 +161,12 @@ Price >> printOn: aStream [
 	aStream nextPutAll: currencyCode asString
 ]
 
+{ #category : 'arithmetic' }
+Price >> times: multiplier [
+
+	^ multiplier * self
+]
+
 { #category : 'intervals' }
 Price >> to: stop [
 	"Answer an Interval from the receiver up to the argument, stop,
