@@ -33,6 +33,13 @@ PriceTest >> testAdditionStartingWithNumber [
 	self assert: 2 + 6 EUR equals: 8 EUR
 ]
 
+{ #category : 'tests - comparing' }
+PriceTest >> testCompareTwoPrices [
+
+	self assert: 42 EUR equals: 42 EUR.
+	self assert: 42 EUR hash equals: 42 EUR hash
+]
+
 { #category : 'tests - arithmetic compatible' }
 PriceTest >> testDivideByFloat [
 	self assert: 12.00 EUR / 0.1 equals: 120 EUR
